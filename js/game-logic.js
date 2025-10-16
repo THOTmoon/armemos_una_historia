@@ -284,17 +284,17 @@ class GameLogic {
             "pasos": [
                 {
                     "id": "semilla1_alt",
-                    "imagen": "pictogramas/secuencias-base/semilla1.png",
+                    "imagen": "pictogramas/secuencias-base/niña_enferma1.png",
                     "descripcion": "Semilla"
                 },
                 {
                     "id": "semilla2_alt",
-                    "imagen": "pictogramas/secuencias-base/semilla2.png",
+                    "imagen": "pictogramas/secuencias-base/niña_enferma2.png",
                     "descripcion": "Riego"
                 },
                 {
                     "id": "semilla3_alt",
-                    "imagen": "pictogramas/secuencias-base/semilla3.png",
+                    "imagen": "pictogramas/secuencias-base/niña_enferma3",
                     "descripcion": "Planta florece"
                 }
             ]
@@ -1207,6 +1207,7 @@ class GameLogic {
 
 
 window.GameLogic = GameLogic;
+
 
 
 
