@@ -1,0 +1,1039 @@
+/* ================================================================
+   CSS FUSIONADO: Estilos base + Tema Sirenas y Unicornios
+   ================================================================ */
+/* Variables del tema */
+:root {
+  --color-primario-sirena: #4A90E2;
+  --color-secundario-sirena: #50C878;
+  --color-acento-unicornio: #FF69B4;
+  --color-morado-unicornio: #DA70D6;
+  --color-gradiente-1: #87CEEB;
+  --color-gradiente-2: #DDA0DD;
+  --color-fondo-oscuro: #2F4F4F;
+  --sombra-tematica: 0 4px 20px rgba(74,144,226,0.4),
+                     0 6px 25px rgba(221,160,221,0.3);
+}
+/* Reset y configuración general */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html, body {
+  height: 100%;
+}
+/* Tipografías (se asume importadas en index.html) */
+body {
+  font-family: 'Quicksand', sans-serif;
+  text-align: center;
+  background: linear-gradient(135deg, var(--color-gradiente-1) 0%, var(--color-gradiente-2) 100%);
+  color: #fff;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column; /* NUEVO: Establece el eje principal verticalmente */
+  justify-content: flex-start; /* MODIFICADO: Alinea el contenido desde el inicio (la parte superior) */
+  align-items: center; /* MANTENIDO: Sigue centrando horizontalmente el contenedor principal */
+  padding: 10px;
+  overflow-x: hidden;
+  overflow-y: auto; /* NUEVO: Permite el desplazamiento vertical si el contenido es más alto que la pantalla */
+}
+/* --- Estilos Pantalla de Inicio (Splash) --- */
+#pantalla-inicio {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, var(--color-gradiente-1), var(--color-gradiente-2));
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+  transition: opacity 0.5s ease;
+}
+.splash-container {
+  width: 90%;
+  max-width: 450px;
+  aspect-ratio: 9/16;
+  background: 
+    url("../img/ui-elementos/fondo-splash-sirena-unicornio.png") no-repeat center center / cover,
+    rgba(255, 255, 255, 0.15);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 40px rgba(255, 182, 193, 0.4);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding-bottom: -50px; /* Ajusta este valor según necesites */
+  align-items: center;
+  text-align: center;
+}
+.splash-container h1 {
+  font-family: 'Fredoka One', cursive;
+  font-size: 2.4em;
+  color: var(--color-acento-unicornio);
+  text-shadow: 0 0 15px rgba(255,255,255,0.8);
+  margin-bottom: 30px;
+}
+/* Botón jugar */
+#boton-jugar {
+  margin-top: 155px;
+  padding: 14px 38px;
+  font-size: 1.6em;
+  font-weight: bold;
+  color: white;
+  border: 3px solid var(--color-secundario-sirena);
+  border-radius: 50px;
+  cursor: pointer;
+  background: linear-gradient(to right,
+    var(--color-acento-unicornio),
+    var(--color-primario-sirena));
+  box-shadow: var(--sombra-tematica);
+  transition: all 0.3s ease;
+}
+#boton-jugar:hover {
+  transform: scale(1.05);
+  background: linear-gradient(to right, #ff52c3, #3a7bc8);
+}
+/* --- Estructura Principal del Juego --- */
+#juego-principal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 480px;
+  padding: 20px;
+  background-color: rgba(255,255,255,0.25);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 2px solid var(--color-primario-sirena);
+  border-radius: 20px;
+  box-shadow: var(--sombra-tematica);
+  color: white;
+}
+/* Título principal */
+#juego-principal h1 {
+  font-family: 'Fredoka One', cursive;
+  font-weight: 900;
+  font-size: 2.0em;
+  margin-bottom: 12px;
+  color: var(--color-acento-unicornio);
+  text-shadow: -1px -1px 0 var(--color-fondo-oscuro),
+               1px -1px 0 var(--color-fondo-oscuro),
+               -1px 1px 0 var(--color-fondo-oscuro),
+               1px 1px 0 var(--color-fondo-oscuro),
+               0 0 10px var(--color-acento-unicornio);
+}
+/* INFO DEL JUEGO */
+.info-juego {
+  list-style-type: none;
+  padding: 0;
+  margin-bottom: 12px;
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  font-size: 1.05em;
+  font-weight: 700;
+  background-color: rgba(74,144,226,0.3);
+  padding: 8px;
+  border-radius: 15px;
+  border: 1px solid var(--color-secundario-sirena);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+.descripcion-nivel {
+  font-size: 1.0em;
+  margin: 8px 0 14px;
+  padding: 8px;
+  background-color: rgba(221,160,221,0.25);
+  border: 1px dashed var(--color-morado-unicornio);
+  border-radius: 10px;
+  max-width: 95%;
+  color: #2F4F4F;
+}
+/* ======================================================
+   CONTENEDOR SECUENCIA (ARRIBA) - GRID 3 COLUMNAS
+   ====================================================== */
+.contenedor-secuencia {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  width: 100%;
+  margin: 12px 0;
+  padding: 10px;
+  background-color: rgba(255,255,255,0.15);
+  border-radius: 15px;
+  min-height: 120px;
+  justify-items: center;
+  align-content: flex-start;
+}
+/* Slot individual */
+.posicion-secuencia {
+  width: 100%;
+  /* height: 100px; <-- ELIMINADO */
+  min-height: 120px; /* <-- NUEVO: Aumentado para hacerlo más alargado verticalmente */
+  background-color: rgba(255,255,255,0.18);
+  border: 2px dashed var(--color-acento-unicornio);
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; /* Alinea contenido (imagen o texto) arriba */
+  font-size: 1.05em;
+  color: #E91E63; /* <-- NUEVO: Color fucsia oscuro para el texto general */
+  position: relative;
+  transition: all 0.4s ease;
+  padding: 5px; /* Ajusta según necesites */
+}
+
+.posicion-secuencia.posicion-vacia {
+  font-style: italic;
+  color: #EC407A; /* <-- NUEVO: Fucsia más claro para el texto "Paso X" */
+}
+
+/* --- ESTILO PARA EL TEXTO "Paso X" DENTRO DEL CONTENEDOR VACÍO --- */
+/* Opcional: Si defines el texto en un data-attribute */
+.posicion-secuencia.posicion-vacia::before {
+    content: attr(data-text);
+    /* O simplemente puedes centrar el texto que ya está en innerHTML */
+    /* Si usas innerHTML, solo aplica estilos al texto directamente como arriba */
+}
+
+.posicion-secuencia:has(.imagen-vertical) {
+  /* height: 170px; <-- ELIMINADO */
+  border: 2px solid var(--color-secundario-sirena);
+  /* min-height: auto; <-- PUEDE SER REDUNDANTE AHORA */
+}
+
+/* Imágenes dentro del tablero */
+.pictograma-secuencia {
+  display: block;
+  margin: 0 auto;
+  transition: all 0.35s ease;
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+.imagen-cuadrada {
+  width: 90px;
+  height: 90px;
+  max-height: 90px;
+  object-fit: contain;
+}
+.imagen-vertical {
+  width: 100%; /* <-- Ocupa todo el ancho disponible */
+  height: auto; /* <-- Altura automática para mantener proporción */
+  max-width: 100%; /* <-- Nunca excederá el ancho del contenedor */
+  max-height: 100%; /* <-- Nunca excederá la altura del contenedor */
+  object-fit: contain;
+  /* transform: translateY(-5px); <-- ELIMINADO si no es necesario */
+}
+/* Botón quitar - NUEVO */
+.boton-quitar {
+  position: absolute;
+  bottom: 5px; /* <-- CAMBIADO: Posiciona el botón desde la parte inferior */
+  right: 5px; /* <-- MANTENIDO: Posiciona el botón desde la derecha */
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: #ff4757;
+  color: white;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+  z-index: 10;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  transition: all 0.2s ease;
+}
+
+/* Efecto hover para el botón quitar */
+.boton-quitar:hover {
+  background-color: #e91e63;
+  transform: scale(1.1);
+}
+/* ======================================================
+   CONTENEDOR OPCIONES (INFERIOR) - cartas cuadradas
+   ====================================================== */
+.contenedor-opciones {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 14px;
+  width: 100%;
+  margin: 15px 0;
+  padding: 10px;
+  background-color: transparent;
+  border-radius: 15px;
+  overflow: hidden;
+}
+/* Carta cuadrada fija y centrada */
+.opcion {
+  width: clamp(70px, 28vw, 110px);
+  height: clamp(70px, 28vw, 110px);
+  aspect-ratio: 1 / 1;
+  background-color: rgba(255,255,255,0.2);
+  border: 2px solid rgba(255,255,255,0.3);
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: grab;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  position: relative;
+}
+.opcion:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.25);
+}
+.pictograma-opcion {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 4px;
+  pointer-events: none;
+}
+/* ======================================================
+   BOTONES (reiniciar / siguiente)
+   ====================================================== */
+#reiniciar, #boton-siguiente {
+  margin-top: 12px;
+  padding: 10px 26px;
+  font-family: 'Quicksand', sans-serif;
+  font-size: 1em;
+  font-weight: 700;
+  cursor: pointer;
+  background: linear-gradient(to right,
+    var(--color-primario-sirena),
+    var(--color-morado-unicornio));
+  color: #ffffff;
+  border: none;
+  border-radius: 40px;
+  box-shadow: var(--sombra-tematica);
+  transition: all 0.25s ease;
+}
+#reiniciar:hover, #boton-siguiente:hover {
+  background: linear-gradient(to right, #3a7bc8, #c85ec7);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(74,144,226,0.6);
+}
+/* ======================================================
+   MENSAJES / VICTORIA
+   ====================================================== */
+.mensaje {
+  margin-top: 12px;
+  font-size: 1.15em;
+  color: var(--color-secundario-sirena);
+  font-weight: 700;
+  text-shadow: -1px -1px 0 var(--color-fondo-oscuro),
+               1px -1px 0 var(--color-fondo-oscuro),
+               -1px 1px 0 var(--color-fondo-oscuro),
+               1px 1px 0 var(--color-fondo-oscuro),
+               0 0 10px var(--color-secundario-sirena);
+  min-height: 28px;
+}
+/* Pantalla victoria */
+#pantalla-victoria {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle,
+    var(--color-gradiente-1) 0%,
+    var(--color-gradiente-2) 70%,
+    var(--color-fondo-oscuro) 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 200;
+  transition: opacity 0.5s ease;
+  color: white;
+}
+#gif-celebracion {
+  max-width: 90%;
+  max-height: 50%;
+  width: auto;
+  border: 4px solid var(--color-acento-unicornio);
+  border-radius: 20px;
+  box-shadow: 0 0 50px rgba(255,105,180,0.8),
+              0 0 70px rgba(74,144,226,0.6);
+  margin-bottom: 20px;
+}
+.mensaje-victoria {
+  font-size: 2.0em;
+  font-weight: 700;
+  text-align: center;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  padding: 10px;
+  border-radius: 10px;
+}
+/* utilidades */
+.hidden { display: none !important; }
+/* ======================================================
+   MONEDAS (contador)
+   ====================================================== */
+#monedas-container {
+  position: fixed; /* CAMBIADO: Fija la posición en el viewport */
+  top: 10px;
+  right: 18px;
+  display: flex;
+  align-items: center;
+  font-size: 18px;
+  font-weight: 800;
+  color: #ffd700 !important;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.6);
+  z-index: 300;
+}
+#icono-moneda { width: 32px; height: 32px; margin-right: 6px; }
+/* ======================================================
+   INTERACCIONES / FEEDBACK
+   ====================================================== */
+.arrastrando {
+  transform: scale(1.12);
+  z-index: 1000;
+  transition: transform 0.12s ease;
+}
+/* Animación de brillo para respuestas correctas */
+@keyframes brilloMagico {
+  0% { box-shadow: 0 0 5px var(--color-acento-unicornio); }
+  50% { box-shadow: 0 0 20px var(--color-primario-sirena),
+                0 0 30px var(--color-morado-unicornio); }
+  100% { box-shadow: 0 0 5px var(--color-acento-unicornio); }
+}
+.opcion.correcta {
+  animation: brilloMagico 1s infinite;
+  border-color: gold;
+}
+/* ======================================================
+   RESPONSIVE
+   ====================================================== */
+/* Ajuste responsivo: 2 por fila en móviles pequeños */
+@media (max-width: 380px) {
+  .opcion {
+    width: 95px;
+    height: 95px;
+  }
+  .imagen-cuadrada { 
+    width: 80px; 
+    height: 80px; 
+  }
+  .imagen-vertical { 
+    height: 130px; 
+  }
+}
+/* pequeños ajustes responsive finales */
+@media (max-width: 320px) {
+  h1 { font-size: 1.6em; }
+  .opcion { max-width: 110px; }
+  .pictograma-opcion { width: 85%; height: 85%; }
+}
+/* Contenedor interno de la imagen - ELIMINADO para efecto limpio */
+.opcion-carrusel::before {
+    display: none;
+}
+
+.opcion-carrusel.activa::before {
+    display: none;
+}/* ======================================================
+   CARRUSEL TERAPÉUTICO - MARCO DINÁMICO MEJORADO
+   ====================================================== */
+.contenedor-carrusel {
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    margin: 15px 0;
+    padding: 15px 0;
+    overflow: visible;   /* IMPORTANTE: Permitir que marcos sobresalgan */
+}
+
+.carrusel {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    perspective: 1000px;
+    height: 350px;
+    overflow: hidden;   /* CAMBIADO: Recorta el contenido que sobresale */
+    width: 100%;
+    position: relative;
+    padding: 20px 60px;
+}
+
+.carrusel-inner {
+    display: flex;
+    transition: transform 0.5s ease;
+    transform-style: preserve-3d;
+    min-height: 100%;
+    width: auto;
+    gap: 15px;
+}
+
+/* Contenedor de la tarjeta con marco exterior */
+.opcion-carrusel {
+    flex: 0 0 auto;
+    width: 220px;
+    height: 300px;
+    margin: 0;
+    cursor: grab;
+    transition: all 0.5s ease;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* Marco suave con sombra (sin líneas) */
+    border: none;
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 0;
+    box-sizing: border-box;
+    overflow: visible;   /* Permite que el contenido se vea sin recortes */
+    box-shadow: 
+        0 4px 15px rgba(255, 105, 180, 0.2),
+        inset 0 0 20px rgba(255, 255, 255, 0.1);
+}
+
+.opcion-carrusel:active {
+    cursor: grabbing;
+}
+
+/* Estado activo con marco más pronunciado */
+.opcion-carrusel.activa {
+    width: 260px;
+    height: 340px;
+    transform: scale(1.08);
+    z-index: 10;
+    /* Marco activo con sombra glow (sin líneas) */
+    border: none;
+    box-shadow: 
+        0 0 30px rgba(255, 105, 180, 0.6),
+        0 8px 25px rgba(255, 105, 180, 0.3),
+        inset 0 0 25px rgba(255, 105, 180, 0.1);
+    background: rgba(255, 105, 180, 0.08);
+    border-radius: 16px;
+    padding: 0;
+    overflow: visible;   /* Permite contenido sin recortes */
+}
+
+/* Contenedor interno de la imagen con efecto de marco */
+.opcion-carrusel::before {
+    content: '';
+    position: absolute;
+    inset: 6px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 6px;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.opcion-carrusel.activa::before {
+    opacity: 1;
+    border: 2px solid rgba(255, 105, 180, 0.4);
+}
+
+/* La imagen con mejor manejo del espacio */
+.opcion-carrusel img {
+    width: 100%;         /* Ocupa todo el ancho disponible */
+    height: 100%;        /* Ocupa toda la altura disponible */
+    object-fit: contain;
+    border-radius: 14px;
+    pointer-events: none;
+    position: relative;
+    z-index: 2;
+    display: block;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+/* Sobrescribir clases generales dentro del carrusel */
+.opcion-carrusel .imagen-cuadrada,
+.opcion-carrusel .imagen-vertical {
+    width: 100% !important;
+    height: 100% !important;
+    max-width: none !important;
+    max-height: none !important;
+    object-fit: contain !important;
+}
+
+/* Botones de navegación */
+.carrusel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.95);
+    border: 3px solid var(--color-acento-unicornio);
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    font-size: 26px;
+    cursor: pointer;
+    z-index: 100;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: var(--color-acento-unicornio);
+}
+
+.carrusel-btn:hover {
+    background: white;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+    transform: translateY(-50%) scale(1.15);
+    border-color: var(--color-primario-sirena);
+    color: var(--color-primario-sirena);
+}
+
+.anterior {
+    left: 8px;
+}
+
+.siguiente {
+    right: 8px;
+}
+
+/* Indicadores */
+.indicadores-carrusel {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 25px;
+}
+
+.indicador {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.indicador.activo {
+    background: var(--color-acento-unicornio);
+    transform: scale(1.3);
+    border-color: white;
+    box-shadow: 0 0 10px rgba(255, 105, 180, 0.5);
+}
+
+.indicador:hover {
+    background: rgba(255, 255, 255, 0.8);
+    transform: scale(1.15);
+}
+
+/* Efectos de arrastre */
+.opcion-carrusel.arrastrando {
+    opacity: 0.8;
+    transform: scale(0.98);
+}
+
+/* ======================================================
+   RESPONSIVE
+   ====================================================== */
+@media (max-width: 768px) {
+    .carrusel {
+        height: 300px;
+        padding: 20px 50px;
+    }
+    
+    .opcion-carrusel {
+        width: 180px;
+        height: 250px;
+        border: 3px solid rgba(255, 105, 180, 0.35);
+        padding: 7px;
+    }
+    
+    .opcion-carrusel.activa {
+        width: 220px;
+        height: 290px;
+        border: 4px solid var(--color-acento-unicornio);
+        padding: 9px;
+    }
+    
+    .opcion-carrusel::before {
+        inset: 5px;
+        border: 2px solid rgba(255, 255, 255, 0.3);
+    }
+    
+    .carrusel-btn {
+        width: 48px;
+        height: 48px;
+        font-size: 22px;
+        border-width: 2px;
+    }
+    
+    .anterior { left: 5px; }
+    .siguiente { right: 5px; }
+}
+
+@media (max-width: 480px) {
+    .contenedor-carrusel {
+        margin: 10px 0;
+        padding: 10px 0;
+    }
+    
+    .carrusel {
+        height: 250px;
+        padding: 15px 45px;
+    }
+    
+    .opcion-carrusel {
+        width: 150px;
+        height: 220px;
+        border: 2px solid rgba(255, 105, 180, 0.35);
+        padding: 6px;
+    }
+    
+    .opcion-carrusel.activa {
+        width: 190px;
+        height: 260px;
+        border: 3px solid var(--color-acento-unicornio);
+        padding: 8px;
+    }
+    
+    .opcion-carrusel::before {
+        inset: 4px;
+        border: 2px solid rgba(255, 255, 255, 0.25);
+    }
+    
+    .carrusel-btn {
+        width: 44px;
+        height: 44px;
+        font-size: 20px;
+        border-width: 2px;
+    }
+    
+    .anterior { left: 3px; }
+    .siguiente { right: 3px; }
+    
+    .indicador {
+        width: 12px;
+        height: 12px;
+    }
+}
+
+@media (max-width: 360px) {
+    .carrusel {
+        height: 220px;
+        padding: 10px 40px;
+    }
+    
+    .opcion-carrusel {
+        width: 130px;
+        height: 200px;
+        border: 2px solid rgba(255, 105, 180, 0.3);
+        padding: 5px;
+    }
+    
+    .opcion-carrusel.activa {
+        width: 160px;
+        height: 230px;
+        border: 3px solid var(--color-acento-unicornio);
+        padding: 7px;
+    }
+}
+
+
+#pantalla-final {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #ffd6e7 0%, #d6f0ff 50%, #e0d6ff 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    font-family: 'Comic Sans MS', 'Chalkboard SE', 'Arial Rounded MT Bold', sans-serif;
+    overflow: hidden; /* IMPORTANTE: Evita que los elementos se salgan */
+}
+
+.pantalla-final-contenido {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 2.5rem 2rem;
+    border-radius: 25px;
+    text-align: center;
+    max-width: 450px;
+    width: 90%;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+    border: 8px solid #ffb6c1;
+    position: relative;
+    animation: aparecer 0.8s ease-out;
+    margin: 1rem;
+    overflow: hidden; /* Contiene elementos internos */
+}
+
+@keyframes aparecer {
+    0% { transform: scale(0.8); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+.pantalla-final-contenido::before {
+    content: "✨";
+    font-size: 2.5rem;
+    position: absolute;
+    top: -20px;
+    left: -20px;
+    animation: brillar 2s infinite alternate;
+    z-index: 1;
+}
+
+.pantalla-final-contenido::after {
+    content: "🎀";
+    font-size: 2.5rem;
+    position: absolute;
+    bottom: -20px;
+    right: -20px;
+    animation: flotar 3s infinite ease-in-out;
+    z-index: 1;
+}
+
+@keyframes brillar {
+    0% { transform: scale(1) rotate(0deg); }
+    100% { transform: scale(1.2) rotate(10deg); }
+}
+
+@keyframes flotar {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-8px) rotate(5deg); }
+}
+
+#estadisticas-final h3 {
+    color: #ff69b4;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 0px #ffd1dc;
+    position: relative;
+    z-index: 2;
+}
+
+#estadisticas-final p {
+    color: #8a6fa3;
+    font-size: 1.2rem;
+    margin: 0.7rem 0;
+    line-height: 1.4;
+    z-index: 2;
+    position: relative;
+}
+
+.estadistica-destacada {
+    background: linear-gradient(135deg, #d6f0ff, #e0d6ff);
+    padding: 0.8rem;
+    border-radius: 15px;
+    margin: 1.2rem 0;
+    border: 3px dashed #b19cd9;
+    position: relative;
+    z-index: 2;
+}
+
+.estadistica-destacada .numero {
+    font-size: 2.2rem;
+    font-weight: bold;
+    color: #ff69b4;
+    display: block;
+}
+
+.estadistica-destacada .texto {
+    font-size: 1.1rem;
+    color: #8a6fa3;
+}
+
+.mensaje-motivador {
+    font-size: 1.3rem;
+    color: #ff69b4;
+    font-weight: bold;
+    margin: 1.2rem 0;
+    padding: 0.8rem;
+    background: rgba(255, 182, 193, 0.2);
+    border-radius: 15px;
+    border-left: 5px solid #ff69b4;
+    position: relative;
+    z-index: 2;
+}
+
+#reiniciar-juego {
+    background: linear-gradient(135deg, #ff69b4, #ff97c2);
+    color: white;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    font-size: 1.2rem;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(255, 105, 180, 0.3);
+    font-family: inherit;
+    margin-top: 0.5rem;
+    position: relative;
+    z-index: 10; /* Alto z-index para asegurar que sea clickeable */
+}
+
+#reiniciar-juego:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(255, 105, 180, 0.4);
+    background: linear-gradient(135deg, #ff97c2, #ff69b4);
+}
+
+#reiniciar-juego:active {
+    transform: translateY(0px);
+}
+
+.decoracion-estrellas {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 1.3rem;
+    animation: girar 4s linear infinite;
+    z-index: 2;
+}
+
+@keyframes girar {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+#pantalla-final.hidden {
+    display: none;
+}
+
+/* Efectos de confeti CONTAINED - ahora dentro del contenido */
+.contenedor-confeti {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    border-radius: 17px; /* Mismo que el contenido */
+    pointer-events: none; /* Permite clicks a través de él */
+    z-index: 1;
+}
+
+.confeti {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background: #ff69b4;
+    border-radius: 50%;
+    animation: caer 5s linear infinite;
+    opacity: 0.8;
+}
+
+.confeti:nth-child(2n) {
+    background: #d6f0ff;
+    width: 10px;
+    height: 10px;
+}
+
+.confeti:nth-child(3n) {
+    background: #e0d6ff;
+    width: 8px;
+    height: 8px;
+}
+
+.confeti:nth-child(4n) {
+    background: #ffd1dc;
+    width: 6px;
+    height: 6px;
+}
+
+@keyframes caer {
+    0% { 
+        transform: translateY(-50px) rotate(0deg) translateX(0px); 
+        opacity: 1; 
+    }
+    100% { 
+        transform: translateY(500px) rotate(360deg) translateX(30px); 
+        opacity: 0; 
+    }
+}
+
+/* Corazones flotantes CONTAINED */
+.contenedor-corazones {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    border-radius: 17px;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.corazon-flotante {
+    position: absolute;
+    font-size: 1.5rem;
+    animation: flotar-corazon 4s ease-in-out infinite;
+    opacity: 0.7;
+}
+
+@keyframes flotar-corazon {
+    0%, 100% { 
+        transform: translateY(0px) scale(1); 
+        opacity: 0.7;
+    }
+    50% { 
+        transform: translateY(-15px) scale(1.1); 
+        opacity: 1;
+    }
+}
+
+/* Mejoras para interfaz táctil */
+.opcion-carrusel {
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+.opcion-carrusel:active {
+    transform: scale(0.95);
+    transition: transform 0.1s ease;
+}
+
+/* Feedback visual para arrastre táctil */
+.opcion-carrusel.dragging {
+    opacity: 0.7;
+    transform: scale(1.1);
+    z-index: 1000;
+}
+
+/* Mejorar área de toque en móviles */
+@media (max-width: 768px) {
+    .opcion-carrusel {
+        padding: 15px;
+    }
+    
+    .posicion-secuencia {
+        min-height: 140px;
+    }
+    
+    .boton-quitar {
+        width: 40px;
+        height: 40px;
+        font-size: 20px;
+    }
+}
+
+/* Prevenir zoom en toques dobles */
+.contenedor-carrusel {
+    touch-action: pan-y;
+}
+
+.contenedor-secuencia {
+    touch-action: pan-y;
+
+}
+
+#boton-siguiente {
+  display: none !important;
+}

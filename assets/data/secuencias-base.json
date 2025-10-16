@@ -1,0 +1,416 @@
+{
+    "titulo": "Juego de Secuenciación Lógica - Sirenas y Unicornios",
+    "descripcion": "Colección de secuencias lógicas para terapia cognitiva",
+    "version": "1.0",
+    "niveles": [
+      {
+        "id": 1,
+        "titulo": "Ciclo de una Planta",
+        "descripcion": "Ordena los pasos para que la semilla crezca",
+        "tema": "naturaleza",
+        "pasos": [
+          {
+            "id": "semilla1",
+            "imagenCuadrada": "pictogramas/secuencias-base/semilla1cuadrada.png",
+            "imagenVertical": "pictogramas/secuencias-base/semilla1.png",
+            "descripcion": "Semilla"
+          },
+          {
+            "id": "semilla2",
+            "imagenCuadrada": "pictogramas/secuencias-base/semilla2cuadrada.png",
+            "imagenVertical": "pictogramas/secuencias-base/semilla2.png",
+            "descripcion": "Brota"
+          },
+          {
+            "id": "semilla3",
+            "imagenCuadrada": "pictogramas/secuencias-base/semilla3cuadrada.png",
+            "imagenVertical": "pictogramas/secuencias-base/semilla3.png",
+            "descripcion": "Planta crece"
+          }
+        ],
+        "distractores": []
+      },
+      {
+        "id": 2,
+        "titulo": "Proceso de la Miel",
+        "descripcion": "Ordena los pasos para obtener miel",
+        "tema": "naturaleza",
+        "pasos": [
+          {
+            "id": "miel1",
+            "imagenCuadrada": "pictogramas/secuencias-base/miel1cuadrada.png",
+            "imagenVertical": "pictogramas/secuencias-base/miel1.png",
+            "descripcion": "Flor"
+          },
+          {
+            "id": "miel2",
+            "imagenCuadrada": "pictogramas/secuencias-base/miel2cuadrada.png",
+            "imagenVertical": "pictogramas/secuencias-base/miel2.png",
+            "descripcion": "Abeja"
+          },
+          {
+            "id": "miel3",
+            "imagenCuadrada": "pictogramas/secuencias-base/miel3cuadrada.png",
+            "imagenVertical": "pictogramas/secuencias-base/miel3.png",
+            "descripcion": "Miel"
+          }
+        ],
+        "distractores": []
+      },
+      {
+        "id": 3,
+        "titulo": "Ciclo del Agua",
+        "descripcion": "Ordena los pasos del ciclo del agua",
+        "tema": "naturaleza",
+        "pasos": [
+          {
+            "id": "agua1",
+            "imagenCuadrada": "pictogramas/secuencias-base/agua1cuadrada.png",
+            "imagenVertical": "pictogramas/secuencias-base/agua1.png",
+            "descripcion": "Lluvia"
+          },
+          {
+            "id": "agua2",
+            "imagenCuadrada": "pictogramas/secuencias-base/agua2cuadrada.png",
+            "imagenVertical": "pictogramas/secuencias-base/agua2.png",
+            "descripcion": "Río"
+          },
+          {
+            "id": "agua3",
+            "imagenCuadrada": "pictogramas/secuencias-base/agua3cuadrada.png",
+            "imagenVertical": "pictogramas/secuencias-base/agua3.png",
+            "descripcion": "Nube"
+          }
+        ],
+        "distractores": []
+      },
+      {
+        "id": 4,
+        "titulo": "Proceso de la Leche",
+        "descripcion": "Ordena los pasos para obtener leche",
+        "tema": "animales",
+        "pasos": [
+          {
+            "id": "leche1",
+            "imagenCuadrada": "pictogramas/secuencias-base/leche1cuadrada.png",
+            "imagenVertical": "pictogramas/secuencias-base/leche1.png",
+            "descripcion": "Vaca"
+          },
+          {
+            "id": "leche2",
+            "imagenCuadrada": "pictogramas/secuencias-base/leche2cuadrada.png",
+            "imagenVertical": "pictogramas/secuencias-base/leche2.png",
+            "descripcion": "Ordeño"
+          },
+          {
+            "id": "leche3",
+            "imagenCuadrada": "pictogramas/secuencias-base/leche3cuadrada.png",
+            "imagenVertical": "pictogramas/secuencias-base/leche3.png",
+            "descripcion": "Vaso de leche"
+          }
+        ],
+        "distractores": []
+      },
+      {
+        "id": 5,
+        "titulo": "Hacer una Ensalada",
+        "descripcion": "Ordena los pasos para preparar una ensalada",
+        "tema": "cocina",
+        "pasos": [
+          {
+            "id": "ensalada1",
+            "imagenCuadrada": "pictogramas/secuencias-base/ensalada1cuadrada.png",
+            "imagenVertical": "pictogramas/secuencias-base/ensalada1.png",
+            "descripcion": "Tomate"
+          },
+          {
+            "id": "ensalada2",
+            "imagenCuadrada": "pictogramas/secuencias-base/ensalada2cuadrada.png",
+            "imagenVertical": "pictogramas/secuencias-base/ensalada2.png",
+            "descripcion": "Lechuga"
+          },
+          {
+            "id": "ensalada3",
+            "imagenCuadrada": "pictogramas/secuencias-base/ensalada3cuadrada.png",
+            "imagenVertical": "pictogramas/secuencias-base/ensalada3.png",
+            "descripcion": "Ensalada lista"
+          }
+        ],
+        "distractores": []
+      },
+      {
+        "id": 6,
+        "titulo": "Proceso de la Gallina",
+        "descripcion": "Ordena los pasos del proceso de la gallina",
+        "tema": "animales",
+        "pasos": [
+          {
+            "id": "gallina1",
+            "imagenCuadrada": "pictogramas/secuencias-base/gallina1cuadrada.png",
+            "imagenVertical": "pictogramas/secuencias-base/gallina1.png",
+            "descripcion": "Gallina"
+          },
+          {
+            "id": "gallina2",
+            "imagenCuadrada": "pictogramas/secuencias-base/gallina2cuadrada.png",
+            "imagenVertical": "pictogramas/secuencias-base/gallina2.png",
+            "descripcion": "Huevo"
+          },
+          {
+            "id": "gallina3",
+            "imagenCuadrada": "pictogramas/secuencias-base/gallina3cuadrada.png",
+            "imagenVertical": "pictogramas/secuencias-base/gallina3.png",
+            "descripcion": "Pollito"
+          }
+        ],
+        "distractores": []
+      },
+      {
+        "id": 7,
+        "titulo": "Proceso del Fuego",
+        "descripcion": "Ordena los pasos para hacer fuego",
+        "tema": "naturaleza",
+        "pasos": [
+          {
+            "id": "fuego1",
+            "imagenCuadrada": "pictogramas/secuencias-base/fuego1cuadrada.png",
+            "imagenVertical": "pictogramas/secuencias-base/fuego1.png",
+            "descripcion": "Madera"
+          },
+          {
+            "id": "fuego2",
+            "imagenCuadrada": "pictogramas/secuencias-base/fuego2cuadrada.png",
+            "imagenVertical": "pictogramas/secuencias-base/fuego2.png",
+            "descripcion": "Fósforo"
+          },
+          {
+            "id": "fuego3",
+            "imagenCuadrada": "pictogramas/secuencias-base/fuego3cuadrada.png",
+            "imagenVertical": "pictogramas/secuencias-base/fuego3.png",
+            "descripcion": "Fuego encendido"
+          }
+        ],
+        "distractores": []
+      },
+      {
+        "id": 8,
+        "titulo": "Hacer Jugo de Naranja",
+        "descripcion": "Ordena los pasos para preparar jugo de naranja",
+        "tema": "cocina",
+        "pasos": [
+          {
+            "id": "jugo_naranja1",
+            "imagenCuadrada": "pictogramas/secuencias-base/jugo_naranja1cuadrada.png",
+            "imagenVertical": "pictogramas/secuencias-base/jugo_naranja1.png",
+            "descripcion": "Naranja"
+          },
+          {
+            "id": "jugo_naranja2",
+            "imagenCuadrada": "pictogramas/secuencias-base/jugo_naranja2cuadrada.png",
+            "imagenVertical": "pictogramas/secuencias-base/jugo_naranja2.png",
+            "descripcion": "Exprimir"
+          },
+          {
+            "id": "jugo_naranja3",
+            "imagenCuadrada": "pictogramas/secuencias-base/jugo_naranja3cuadrada.png",
+            "imagenVertical": "pictogramas/secuencias-base/jugo_naranja3.png",
+            "descripcion": "Vaso de jugo"
+          }
+        ],
+        "distractores": []
+      },
+      {
+        "id": 9,
+        "titulo": "Lavarse las Manos",
+        "descripcion": "Ordena los pasos para lavarse las manos correctamente",
+        "tema": "higiene",
+        "pasos": [
+          {
+            "id": "manos_sucias1",
+            "imagenCuadrada": "pictogramas/secuencias-base/manos_sucias1cuadrada.png",
+            "imagenVertical": "pictogramas/secuencias-base/manos_sucias1.png",
+            "descripcion": "Manos sucias"
+          },
+          {
+            "id": "manos_sucias2",
+            "imagenCuadrada": "pictogramas/secuencias-base/manos_sucias2cuadrada.png",
+            "imagenVertical": "pictogramas/secuencias-base/manos_sucias2.png",
+            "descripcion": "Aplicar jabón"
+          },
+          {
+            "id": "manos_sucias3",
+            "imagenCuadrada": "pictogramas/secuencias-base/manos_sucias3cuadrada.png",
+            "imagenVertical": "pictogramas/secuencias-base/manos_sucias3.png",
+            "descripcion": "Manos limpias"
+          }
+        ],
+        "distractores": []
+      },
+      {
+        "id": 10,
+        "titulo": "Lavar los Platos",
+        "descripcion": "Ordena los pasos para lavar los platos",
+        "tema": "hogar",
+        "pasos": [
+          {
+            "id": "platos1",
+            "imagenCuadrada": "pictogramas/secuencias-base/platos1cuadrada.png",
+            "imagenVertical": "pictogramas/secuencias-base/platos1.png",
+            "descripcion": "Platos sucios"
+          },
+          {
+            "id": "platos2",
+            "imagenCuadrada": "pictogramas/secuencias-base/platos2cuadrada.png",
+            "imagenVertical": "pictogramas/secuencias-base/platos2.png",
+            "descripcion": "Aplicar detergente"
+          },
+          {
+            "id": "platos3",
+            "imagenCuadrada": "pictogramas/secuencias-base/platos3cuadrada.png",
+            "imagenVertical": "pictogramas/secuencias-base/platos3.png",
+            "descripcion": "Platos limpios"
+          }
+        ],
+        "distractores": []
+      },
+      {
+        "id": 11,
+        "titulo": "Ciclo de una Mariposa",
+        "descripcion": "Ordena los pasos del ciclo de vida de una mariposa",
+        "tema": "naturaleza",
+        "pasos": [
+          {
+            "id": "mariposa1",
+            "imagenCuadrada": "pictogramas/secuencias-base/mariposa1cuadrada.png",
+            "imagenVertical": "pictogramas/secuencias-base/mariposa1.png",
+            "descripcion": "Huevo"
+          },
+          {
+            "id": "mariposa2",
+            "imagenCuadrada": "pictogramas/secuencias-base/mariposa2cuadrada.png",
+            "imagenVertical": "pictogramas/secuencias-base/mariposa2.png",
+            "descripcion": "Oruga"
+          },
+          {
+            "id": "mariposa3",
+            "imagenCuadrada": "pictogramas/secuencias-base/mariposa3cuadrada.png",
+            "imagenVertical": "pictogramas/secuencias-base/mariposa3.png",
+            "descripcion": "Mariposa adulta"
+          }
+        ],
+        "distractores": []
+      },
+      {
+        "id": 12,
+        "titulo": "Crecimiento de una Semilla (Alternativo)",
+        "descripcion": "Ordena los pasos para que la semilla crezca (alternativo)",
+        "tema": "naturaleza",
+        "pasos": [
+          {
+            "id": "semilla1_alt",
+            "imagenCuadrada": "pictogramas/secuencias-base/semilla1cuadrada.png",
+            "imagenVertical": "pictogramas/secuencias-base/semilla1.png",
+            "descripcion": "Semilla"
+          },
+          {
+            "id": "semilla2_alt",
+            "imagenCuadrada": "pictogramas/secuencias-base/semilla2cuadrada.png",
+            "imagenVertical": "pictogramas/secuencias-base/semilla2.png",
+            "descripcion": "Riego"
+          },
+          {
+            "id": "semilla3_alt",
+            "imagenCuadrada": "pictogramas/secuencias-base/semilla3cuadrada.png",
+            "imagenVertical": "pictogramas/secuencias-base/semilla3.png",
+            "descripcion": "Planta florece"
+          }
+        ],
+        "distractores": []
+      },
+      {
+        "id": 13,
+        "titulo": "Proceso de la Madera",
+        "descripcion": "Ordena los pasos para obtener madera útil",
+        "tema": "naturaleza",
+        "pasos": [
+          {
+            "id": "madera1",
+            "imagenCuadrada": "pictogramas/secuencias-base/madera1cuadrada.png",
+            "imagenVertical": "pictogramas/secuencias-base/madera1.png",
+            "descripcion": "Árbol"
+          },
+          {
+            "id": "madera2",
+            "imagenCuadrada": "pictogramas/secuencias-base/madera2cuadrada.png",
+            "imagenVertical": "pictogramas/secuencias-base/madera2.png",
+            "descripcion": "Talar"
+          },
+          {
+            "id": "madera3",
+            "imagenCuadrada": "pictogramas/secuencias-base/madera3cuadrada.png",
+            "imagenVertical": "pictogramas/secuencias-base/madera3.png",
+            "descripcion": "Tronco cortado"
+          }
+        ],
+        "distractores": []
+      },
+      {
+        "id": 14,
+        "titulo": "Hacer una Tortilla",
+        "descripcion": "Ordena los pasos para preparar una tortilla",
+        "tema": "cocina",
+        "pasos": [
+          {
+            "id": "tortilla1",
+            "imagenCuadrada": "pictogramas/secuencias-base/tortilla1cuadrada.png",
+            "imagenVertical": "pictogramas/secuencias-base/tortilla1.png",
+            "descripcion": "Huevos"
+          },
+          {
+            "id": "tortilla2",
+            "imagenCuadrada": "pictogramas/secuencias-base/tortilla2cuadrada.png",
+            "imagenVertical": "pictogramas/secuencias-base/tortilla2.png",
+            "descripcion": "Batir huevos"
+          },
+          {
+            "id": "tortilla3",
+            "imagenCuadrada": "pictogramas/secuencias-base/tortilla3cuadrada.png",
+            "imagenVertical": "pictogramas/secuencias-base/tortilla3.png",
+            "descripcion": "Tortilla cocida"
+          }
+        ],
+        "distractores": []
+      },
+      {
+        "id": 15,
+        "titulo": "Cuidado de las Uñas",
+        "descripcion": "Ordena los pasos para cuidar las uñas",
+        "tema": "higiene",
+        "pasos": [
+          {
+            "id": "uñas1",
+            "imagenCuadrada": "pictogramas/secuencias-base/uñas1cuadrada.png",
+            "imagenVertical": "pictogramas/secuencias-base/uñas1.png",
+            "descripcion": "Uñas largas"
+          },
+          {
+            "id": "uñas2",
+            "imagenCuadrada": "pictogramas/secuencias-base/uñas2cuadrada.png",
+            "imagenVertical": "pictogramas/secuencias-base/uñas2.png",
+            "descripcion": "Cortar uñas"
+          },
+          {
+            "id": "uñas3",
+            "imagenCuadrada": "pictogramas/secuencias-base/uñas3cuadrada.png",
+            "imagenVertical": "pictogramas/secuencias-base/uñas3.png",
+            "descripcion": "Uñas cortas"
+          }
+        ],
+        "distractores": []
+      }
+    ],
+    "configuracion": {
+      "tiempoInactividadMs": 20000,
+      "maxIntentos": 10
+    }
+  }

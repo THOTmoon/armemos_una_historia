@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Juego de Secuenciación Lógica</title>
+    <!-- Importamos las fuentes de Google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Quicksand:wght@500;700&display=swap" rel="stylesheet">
+    <!-- Enlace a tu hoja de estilos -->
+    <link rel="stylesheet" href="assets/css/style.css" />
+    
+    
+</head>
+<body>
+
+    <!-- Pantalla de Inicio -->
+    <div id="pantalla-inicio">
+        <div class="splash-container">
+            <button id="boton-jugar">¡Jugar!</button>
+        </div>
+    </div>
+
+    <!-- Contenedor Principal del Juego -->
+    <main id="juego-principal" class="hidden">
+        <h1>Secuencia Mágica</h1>
+        <!-- INFO DEL JUEGO (Mejora Semántica con <ul>) -->
+        <ul class="info-juego">
+            <li>Nivel: <span id="nivel-actual">1</span>/<span id="total-niveles">3</span></li>
+            <li>Intentos: <span id="intentos">0</span></li>
+        </ul>
+            <div class="descripcion-nivel" id="descripcion-nivel">
+            <!-- Se llenará dinámicamente -->
+        </div>
+        <!-- Contenedor para las posiciones de la secuencia -->
+        <div class="contenedor-secuencia" id="contenedor-secuencia">
+            <!-- Se llenará dinámicamente -->
+        </div>
+        <!-- Contenedor para las cartas de opciones -->
+        <div class="contenedor-opciones" id="contenedor-opciones">
+            <!-- Se llenará dinámicamente -->
+        </div>
+        <div id="monedas-container">
+            <img src="assets/img/ui/moneda.png" alt="moneda" id="icono-moneda">
+            <span id="contador-monedas">0</span>
+        </div>
+        <!-- Carrusel de opciones -->
+        <div class="contenedor-carrusel">
+            <div class="carrusel">
+                <div class="carrusel-inner">
+                    <!-- Las opciones se insertarán aquí dinámicamente -->
+                </div>
+            </div>
+            <button class="carrusel-btn anterior">‹</button>
+            <button class="carrusel-btn siguiente">›</button>
+            <div class="indicadores-carrusel">
+                <!-- Los indicadores se insertarán aquí -->
+            </div>
+        </div>
+        <!-- Fin contenedor-carrusel -->
+        <!-- Mover el mensaje AQUÍ, justo después del contenedor del carrusel -->
+        <div id="mensaje" class="mensaje"></div>
+        <button id="reiniciar">Reiniciar Nivel</button>
+        <button id="boton-siguiente" class="hidden">Siguiente Nivel</button>
+
+    </main>
+
+    <!-- ================================== -->
+    <!-- === PANTALLA DE VICTORIA === -->
+    <!-- ================================== -->
+    <div id="pantalla-victoria" class="hidden">
+        <!-- Reemplazamos <video> por <img> -->
+        <img id="gif-celebracion" src="assets/img/gifs/celebracion-unicornio.gif" width="100%">
+        <div id="mensaje-victoria" class="mensaje-victoria"></div>
+    </div>
+
+    <!-- ================================== -->
+    <!-- Elementos de Audio -->
+    <audio id="sonido-inicio" src="assets/audio/inicio.mp3" preload="auto"></audio>
+    <audio id="sonido-acierto" src="assets/audio/acierto.mp3" preload="auto"></audio>
+    <audio id="sonido-error" src="assets/audio/error.mp3" preload="auto"></audio>
+    <audio id="sonido-voltear" src="assets/audio/voltear.mp3" preload="auto"></audio>
+    <audio id="sonido-victoria-nivel" src="assets/audio/victoria-nivel.mp3" preload="auto"></audio>
+
+    <!-- 🎉 Variantes de felicitación (voz terapista) -->
+    <audio id="sonido-victoria1" src="assets/audio/victoria1.mp3" preload="auto"></audio>
+    <audio id="sonido-victoria2" src="assets/audio/victoria2.mp3" preload="auto"></audio>
+    <audio id="sonido-victoria3" src="assets/audio/victoria3.mp3" preload="auto"></audio>
+
+    <!-- 🎉 Variantes de error (voz terapista) -->
+
+    <audio id="sonido-error1" src="assets/audio/error1.mp3" preload="auto"></audio>
+    <audio id="sonido-error2" src="assets/audio/error2.mp3" preload="auto"></audio>
+    <audio id="sonido-error3" src="assets/audio/error3.mp3" preload="auto"></audio>
+
+    <!-- 🎶 Música de fondo -->
+    <audio id="musica-fondo" src="assets/audio/musica-fondo.mp3" preload="auto" loop></audio>
+
+    <!-- Scripts -->
+    <!-- 1. Scripts de utilidades base (CORE) - Deben cargarse primero -->
+    <script src="js/core/event-emitter.js"></script>
+    <script src="js/core/asset-manager.js"></script>
+    <script src="js/core/state-manager.js"></script>
+    
+    <!-- 2. Scripts de funcionalidad específica del juego - Cargan después de CORE -->
+    <script src="js/audio-manager.js"></script>
+    <script src="js/rewards-system.js"></script>
+    <script src="js/game-logic.js"></script>
+    
+    <!-- 3. Script principal que inicia todo - Siempre el último -->
+    <script src="js/main.js"></script>
+
+    <div id="pantalla-final" class="hidden">
+    <div class="pantalla-final-contenido">
+        <div id="estadisticas-final">
+            <!-- Las estadísticas se llenarán dinámicamente -->
+        </div>
+        <button id="reiniciar-juego" class="boton-principal">Jugar de Nuevo</button>
+    </div>
+</div>
+</body>
+</html>
